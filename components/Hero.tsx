@@ -1,17 +1,13 @@
-import React from 'react'
-import { Cursor, useTypewriter} from 'react-simple-typewriter'
-import BackgroundCircles from './BackgroundCircles';
-import Image from 'next/image';
-import Link from 'next/link';
-type Props = {}
+import React from "react";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+import BackgroundCircles from "./BackgroundCircles";
+import Image from "next/image";
+import Link from "next/link";
+type Props = {};
 
 export default function Hero({}: Props) {
   const [text, count] = useTypewriter({
-    words: [
-      "afarefer",
-      "afareiojoiiofer",
-      "oijewrifjeiafarefer",
-    ],
+    words: ["afarefer", "afareiojoiiofer", "oijewrifjeiafarefer"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -24,11 +20,13 @@ export default function Hero({}: Props) {
         width={120}
         height={120}
         objectFit='full'
-        src="/my_image.jpeg"
-        alt="Profile Image"
+        src='/my_image.jpeg'
+        alt='Profile Image'
       />
       <div className='z-20'>
-        <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>Software Engineer</h2>
+        <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
+          Software Engineer
+        </h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10 '>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#F7AB0A' />
@@ -49,5 +47,5 @@ export default function Hero({}: Props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

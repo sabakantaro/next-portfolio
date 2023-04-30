@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion } from "framer-motion";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 function ExperienceCard({}: Props) {
   return (
@@ -36,7 +36,9 @@ function ExperienceCard({}: Props) {
             className='h-10 w-10 rounded-full'
           />
         </div>
-        <p className='uppercase py-5 text-gray-300'>Started work... - Ended...</p>
+        <p className='uppercase py-5 text-gray-300'>
+          Started work... - Ended...
+        </p>
         <ul className='list-disc space-y-4 ml-5 text-lg'>
           <li>oahjiofoihawiofhioawhfoihjo</li>
           <li>oahjiofoihawiofhioawhfoihjo</li>
@@ -46,7 +48,7 @@ function ExperienceCard({}: Props) {
         </ul>
       </div>
     </article>
-  )
+  );
 }
 
-export default ExperienceCard
+export default ExperienceCard;
