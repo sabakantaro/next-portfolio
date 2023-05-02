@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,7 +24,7 @@ function About({}: Props) {
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         alt='About me Image'
-        src='/my_image.jpeg'
+        src={urlFor(pageInfo?.profilePic).url()}
         className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
       />
       <div className='space-y-10 px-0 md:px-10'>
@@ -29,14 +33,7 @@ function About({}: Props) {
           <span className='underline decoration-[#F7AB0A]/50'>little</span>{" "}
           background
         </h4>
-        <p className='text-base'>
-          I&rsquo;m a skilled Full Stack Developer with strong points for
-          problem-solving and turning ideas into reality. 💪 With a solid
-          background in system design and extensive experience in user-oriented
-          development and code reviewing, I thrive in fast-paced environments
-          and enjoy tackling complex challenges. I&rsquo;m excited to leverage
-          my expertise to make a positive impact through technology. 💻
-        </p>
+        <p className='text-base'>{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );

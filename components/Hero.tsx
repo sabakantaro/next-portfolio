@@ -3,11 +3,15 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
-type Props = {};
+import { PageInfo } from "@/typings";
+import { urlFor } from "@/sanity";
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
-    words: ["afarefer", "afareiojoiiofer", "oijewrifjeiafarefer"],
+    words: [`Hi my name is ${pageInfo?.title}`, "afareiojoiiofer", "oijewrifjeiafarefer"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -15,12 +19,11 @@ export default function Hero({}: Props) {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
-      <Image
+      <img
         className='relative rounded-full mx-auto object-cover'
         width={120}
         height={120}
-        objectFit='full'
-        src='/my_image.jpeg'
+        src={urlFor(pageInfo?.heroImage)?.url()}
         alt='Profile Image'
       />
       <div className='z-20'>
