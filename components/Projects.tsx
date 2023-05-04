@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
 import React from "react";
+import { Project } from "../typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-aut0 items-center z-0'>
       <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
@@ -22,7 +25,7 @@ function Projects({}: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src='/my_image.jpeg'
+              src={urlFor(project?.image).url()}
               alt={`Project${i} Image`}
               className='w-96 h-96 object-cover rounded-full'
             />
@@ -31,18 +34,24 @@ function Projects({}: Props) {
                 <span className='underline decoration-[#F7AB0A]/50 '>
                   Case Study {i + 1} of {project.length}
                 </span>{" "}
-                UPS clone
+                {project?.title}
               </h4>
-              <p>
-                auhviouhaevhioeahvhjaehvuhaehvehi
-                aldfvkfdklvnkldfmnvklfdsmvklnfdsklvmnfdksl jngbbretosjdfnvjdbg
-                rsofvklndljbndjfnv adnvlkjnfdaklmnvklnvldklanv
-              </p>
+              <div className='flex items-center space-x-2 justify-center'>
+                {project?.technologies?.map((technology: any) => (
+                  <img
+                    key={technology._id}
+                    className='h-10 w-10'
+                    src={urlFor(technology.image).url()}
+                    alt={`${technology} Image`}
+                  />
+                ))}
+              </div>
+              <p>{project?.summary}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className='w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12'></div>
+      <div className='w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12' />
     </div>
   );
 }
