@@ -1,7 +1,6 @@
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
-import Image from "next/image";
 import Link from "next/link";
 import { PageInfo } from "@/typings";
 import { urlFor } from "@/sanity";
@@ -11,7 +10,7 @@ type Props = {
 
 export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
-    words: [`Hi my name is ${pageInfo?.title}`, "afareiojoiiofer", "oijewrifjeiafarefer"],
+    words: [`I'm ${pageInfo?.title}`, "<NextPortfolio />", "FullStackDeveloper"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -20,9 +19,7 @@ export default function Hero({ pageInfo }: Props) {
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
       <img
-        className='relative rounded-full mx-auto object-cover'
-        width={120}
-        height={120}
+        className='relative rounded-full h-32 w-32 mx-auto object-cover'
         src={urlFor(pageInfo?.heroImage)?.url()}
         alt='Profile Image'
       />
@@ -30,9 +27,9 @@ export default function Hero({ pageInfo }: Props) {
         <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
           Software Engineer
         </h2>
-        <h1 className='text-5xl lg:text-6xl font-semibold px-10 '>
+        <h1 className='text-3xl lg:text-5xl font-semibold px-10 '>
           <span className='mr-3'>{text}</span>
-          <Cursor cursorColor='#F7AB0A' />
+          <Cursor cursorColor='#6e469a' />
         </h1>
         <div className='pt-5'>
           <Link href='#about'>
