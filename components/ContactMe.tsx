@@ -19,38 +19,36 @@ function ContactMe({ pageInfo }: Props) {
   };
   return (
     <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
-        ContactMe
-      </h3>
-      <div className='flex flex-col space-y-10 pt-10'>
-        <div className='space-y-10'>
-          <div className='flex space-x-5 items-center justify-center'>
-            <PhoneIcon className='text-[#6e469a] h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>+{pageInfo?.phoneNumber}</p>
+      <h3 className='pageHeader'>ContactMe</h3>
+      <div className='flex flex-col space-y-5 md:space-y-10 pt-20'>
+        <div className='space-y-5 md:space-y-10'>
+          <div className='flex space-x-3 items-center justify-center'>
+            <PhoneIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-base md:text-2xl'>+{pageInfo?.phoneNumber}</p>
           </div>
-          <div className='flex space-x-5 items-center justify-center'>
-            <EnvelopeIcon className='text-[#6e469a] h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>{pageInfo?.email}</p>
+          <div className='flex space-x-3 items-center justify-center'>
+            <EnvelopeIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-base md:text-2xl'>{pageInfo?.email}</p>
           </div>
-          <div className='flex space-x-5 items-center justify-center'>
-            <MapPinIcon className='text-[#6e469a] h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>{pageInfo?.address}</p>
+          <div className='flex space-x-3 items-center justify-center'>
+            <MapPinIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-base md:text-2xl'>{pageInfo?.address}</p>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className='flex flex-col space-y-2 w-fit mx-auto'
+            className='flex flex-col space-y-2 w-full md:w-auto mx-auto'
           >
-            <div className='flex space-x-2'>
+            <div className='flex flex-col space-y-2'>
               <input
                 {...register("name")}
                 placeholder='Name'
-                className='contactInput'
+                className='contactInput flex-grow'
                 type='text'
               />
               <input
                 {...register("email")}
                 placeholder='Email'
-                className='contactInput'
+                className='contactInput flex-grow'
                 type='email'
               />
             </div>
