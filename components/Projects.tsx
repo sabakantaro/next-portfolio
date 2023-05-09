@@ -36,11 +36,11 @@ function Projects({ projects }: Props) {
                   {project?.title}
                 </a>{" "}
               </h4>
-              <div className='flex items-center space-x-2 justify-center'>
+              <div className='flex items-center space-x-1 justify-center'>
                 {project?.technologies?.map((technology: any) => (
                   <img
                     key={technology._id}
-                    className='h-10 w-10 rounded-full'
+                    className='h-6 w-6 rounded-full'
                     src={urlFor(technology.image).url()}
                     alt={`${technology} Image`}
                   />
