@@ -19,11 +19,11 @@ export default function BackgroundCircles({}: Props) {
       }}
       className='relative flex justify-center items-center'
     >
-      <div className='absolute border border-[#333333] rounded-full h-[200px] w-[200px] mt-52 amimate-ping' />
-      <div className='rounded-full border border-[#333333] h-[300px] w-[300px] absolute mt-52' />
-      <div className='rounded-full border border-[#333333] h-[500px] w-[500px] absolute mt-52' />
-      <div className='rounded-full border border-[#6e469a] opacity-20 h-[650px] w-[650px] absolute mt-52 amimate-pulse' />
-      <div className='rounded-full border border-[#333333] h-[800px] w-[800px] absolute mt-52' />
+      <div className='absolute -top-10 w-96 h-96 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-2000 z-[-1]'></div>
+      <div className='absolute -top-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-4000 z-[-1]'></div>
+      <div className='absolute -top-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-6000 z-[-1]'></div>
+      <div className='absolute -top-10 w-96 h-96 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-8000 z-[-1]'></div>
+      <div className='absolute -top-10 w-96 h-96 bg-red-400 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-10000 z-[-1]'></div>
     </motion.div>
   );
 }

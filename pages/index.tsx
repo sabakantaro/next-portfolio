@@ -31,40 +31,46 @@ export default function Home({
   projects,
 }: Props) {
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#6e469a]/80'>
+    <div className='text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-green-500'>
       <Head>
         <title>Ryosuke&rsquo;s Portfolio</title>
       </Head>
+      <img
+        src='/background.jpg'
+        className='absolute w-full h-screen object-cover -z-50'
+      />
       <Header socials={socials} />
-      <section id='hero' className='snap-center'>
-        <Hero pageInfo={pageInfo} />
-      </section>
-      <section id='about' className='snap-center'>
-        <About pageInfo={pageInfo} />
-      </section>
-      <section id='experience' className='snap-center'>
-        <WorkExperience experiences={experiences} />
-      </section>
-      <section id='skills' className='snap-start'>
-        <Skills skills={skills} />
-      </section>
-      <section id='projects' className='snap-start'>
-        <Projects projects={projects} />
-      </section>
-      <section id='contact' className='snap-start'>
-        <ContactMe pageInfo={pageInfo} />
-      </section>
-      <Link href='#hero'>
-        <footer className='sticky bottom-5 w-full cursor-pointer'>
-          <div className='flex items-center justify-center'>
-            <img
-              src={urlFor(pageInfo?.heroImage).url()}
-              alt='Go to hero page'
-              className='w-10 h-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
-            />
-          </div>
-        </footer>
-      </Link>
+        <section id='hero' className='snap-center'>
+          <Hero pageInfo={pageInfo} />
+        </section>
+        <div className='max-w-screen-sm mx-auto'>
+        <section id='about' className='snap-center'>
+          <About pageInfo={pageInfo} />
+        </section>
+        <section id='experience' className='snap-center'>
+          <WorkExperience experiences={experiences} />
+        </section>
+        <section id='skills' className='snap-start'>
+          <Skills skills={skills} />
+        </section>
+        <section id='projects' className='snap-start'>
+          <Projects projects={projects} />
+        </section>
+        <section id='contact' className='snap-start'>
+          <ContactMe pageInfo={pageInfo} />
+        </section>
+        <Link href='#hero'>
+          <footer className='sticky bottom-5 w-full cursor-pointer'>
+            <div className='flex items-center justify-center'>
+              <img
+                src={urlFor(pageInfo?.heroImage).url()}
+                alt='Go to hero page'
+                className='w-10 h-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
+              />
+            </div>
+          </footer>
+        </Link>
+      </div>
     </div>
   );
 }

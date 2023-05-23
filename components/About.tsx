@@ -15,9 +15,7 @@ function About({ pageInfo }: Props) {
       whileInView={{ opacity: 1 }}
       className='flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'
     >
-      <h3 className='pageHeader'>
-        About
-      </h3>
+      <h3 className='pageHeader'>About</h3>
       <motion.img
         initial={{ x: -200, opacity: 0 }}
         transition={{ duration: 1.2 }}
@@ -30,8 +28,7 @@ function About({ pageInfo }: Props) {
       <div className='space-y-5 px-0 md:px-10'>
         <h4 className='text-2xl font-semibold'>
           Here is a{" "}
-          <span className='underline decoration-[#6e469a]/50'>little</span>{" "}
-          background
+          <span className='underline decoration-green-500'>background</span>{" "}
         </h4>
         <p className='text-sm'>{pageInfo?.backgroundInformation}</p>
       </div>

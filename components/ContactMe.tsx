@@ -20,19 +20,19 @@ function ContactMe({ pageInfo }: Props) {
   return (
     <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
       <h3 className='pageHeader'>ContactMe</h3>
-      <div className='flex flex-col space-y-5 md:space-y-10 pt-20'>
-        <div className='space-y-5 md:space-y-10'>
+      <div className='flex flex-col space-y-5 pt-20'>
+        <div className='space-y-5'>
           <div className='flex space-x-3 items-center justify-center'>
-            <PhoneIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
-            <p className='text-base md:text-2xl'>+{pageInfo?.phoneNumber}</p>
+            <PhoneIcon className='text-green-500 h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-gray-400 text-base md:text-xl'>+{pageInfo?.phoneNumber}</p>
           </div>
           <div className='flex space-x-3 items-center justify-center'>
-            <EnvelopeIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
-            <p className='text-base md:text-2xl'>{pageInfo?.email}</p>
+            <EnvelopeIcon className='text-green-500 h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-gray-400 text-base md:text-xl'>{pageInfo?.email}</p>
           </div>
           <div className='flex space-x-3 items-center justify-center'>
-            <MapPinIcon className='text-[#6e469a] h-5 w-5 md:h-7 md:w-7 animate-pulse' />
-            <p className='text-base md:text-2xl'>{pageInfo?.address}</p>
+            <MapPinIcon className='text-green-500 h-5 w-5 md:h-7 md:w-7 animate-pulse' />
+            <p className='text-gray-400 text-base md:text-xl'>{pageInfo?.address}</p>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -65,7 +65,7 @@ function ContactMe({ pageInfo }: Props) {
             />
             <button
               type='submit'
-              className='bg-[#6e469a] py-5 px-10 rounded-md text-black font-bold text-lg '
+              className='bg-green-500 py-2 px-4 rounded-md text-black font-bold text-sm md:text-base uppercase'
             >
               Submit
             </button>

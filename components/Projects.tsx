@@ -12,11 +12,16 @@ function Projects({ projects }: Props) {
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-aut0 items-center z-0'>
       <h3 className='pageHeader'>Projects</h3>
-      <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#6e469a]/80'>
+      <div
+        className={`relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 ${
+          projects.length > 1 &&
+          "scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-green-500/80"
+        }`}
+      >
         {projects.map((project: any, i) => (
           <div
             key={i}
-            className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center h-screen p-20 md:p-44'
+            className='flex-shrink-0 snap-center flex flex-col items-center justify-center h-screen w-full'
           >
             <motion.img
               initial={{ y: -100, opacity: 0 }}
@@ -25,17 +30,22 @@ function Projects({ projects }: Props) {
               viewport={{ once: true }}
               src={urlFor(project?.image).url()}
               alt={`Project${i} Image`}
-              className='w-96 h-96 object-cover rounded-full mt-20'
+              className='w-72 h-72 object-cover rounded-full mt-15'
             />
-            <div className='space-y-7 px-0 md:px-10 max-w-6xl'>
-              <h4 className='text-xl md:text-4xl font-semibold text-center'>
-                <a
-                  href={project?.linkToBuild}
-                  className='underline decoration-[#6e469a]/50 '
-                >
-                  {project?.title}
-                </a>{" "}
+            <div className='space-y-6 -mt-8 container px-10 md:px-40'>
+              <h4 className='text-xl md:text-3xl font-semibold text-center text-white'>
+                {"<"}
+                {project?.title}
+                {"/>"}
               </h4>
+              <div className='flex space-x-2 justify-center'>
+                <a className='projectButton' href={project?.linkToBuild}>
+                  Website
+                </a>
+                <a className='projectButton' href={project?.linkToGithub}>
+                  Github
+                </a>
+              </div>
               <div className='flex items-center space-x-1 justify-center'>
                 {project?.technologies?.map((technology: any) => (
                   <img
@@ -46,12 +56,11 @@ function Projects({ projects }: Props) {
                   />
                 ))}
               </div>
-              <p className='text-xs'>{project?.summary}</p>
+              <p className='text-xs line-clamp-5'>{project?.summary}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className='w-full absolute top-[30%] bg-[#6e469a]/10 left-0 h-[500px] -skew-y-12' />
     </div>
   );
 }

@@ -18,6 +18,11 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/ContactMe.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/ContactMe.tsx"
+  ],
   "exclude": ["node_modules"]
 }

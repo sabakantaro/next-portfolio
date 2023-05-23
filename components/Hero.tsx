@@ -10,7 +10,11 @@ type Props = {
 
 export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
-    words: [`I'm ${pageInfo?.title}`, "<NextPortfolio />", "FullStackDeveloper"],
+    words: [
+      `I'm ${pageInfo?.title}`,
+      "<NextPortfolio />",
+      "FullStackDeveloper",
+    ],
     loop: true,
     delaySpeed: 2000,
   });
@@ -29,7 +33,7 @@ export default function Hero({ pageInfo }: Props) {
         </h2>
         <h1 className='text-2xl lg:text-5xl font-semibold px-10 '>
           <span className='mr-3'>{text}</span>
-          <Cursor cursorColor='#6e469a' />
+          <Cursor cursorColor='#22c55e' />
         </h1>
         <div className='pt-5'>
           <Link href='#about'>
