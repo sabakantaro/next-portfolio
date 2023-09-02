@@ -1,7 +1,7 @@
-import React from "react";
-import { SocialIcon } from "react-social-icons";
-import { motion } from "framer-motion";
-import { Social } from "@/typings";
+import React from 'react';
+import { SocialIcon } from 'react-social-icons';
+import { motion } from 'framer-motion';
+import { Social } from '@/typings';
 
 type Props = {
   socials: Social[];
@@ -32,6 +32,7 @@ function Header({ socials }: Props) {
             fgColor='gray'
             bgColor='transparent'
             url={social.url}
+            target='_blank'
           />
         ))}
       </motion.div>
@@ -57,6 +58,7 @@ function Header({ socials }: Props) {
           network='email'
           fgColor='gray'
           bgColor='transparent'
+          target='_blank'
         />
       </motion.div>
     </header>

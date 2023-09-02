@@ -1,24 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
-import { motion } from "framer-motion";
-import React from "react";
-import { Project } from "../typings";
-import { urlFor } from "@/sanity";
+import { motion } from 'framer-motion';
+import React from 'react';
+import { Project } from '../typings';
+import { urlFor } from '@/sanity';
 
 type Props = {
   projects: Project[];
 };
 
 function Projects({ projects }: Props) {
+  const reversedProjects = [...projects].reverse();
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-aut0 items-center z-0'>
       <h3 className='pageHeader'>Projects</h3>
       <div
         className={`relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 ${
-          projects.length > 1 &&
-          "scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-green-500/80"
+          reversedProjects.length > 1 &&
+          'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-green-500/80'
         }`}
       >
-        {projects.map((project: any, i) => (
+        {reversedProjects.map((project: any, i) => (
           <div
             key={i}
             className='flex-shrink-0 snap-center flex flex-col items-center justify-center h-screen w-full'
@@ -30,19 +31,27 @@ function Projects({ projects }: Props) {
               viewport={{ once: true }}
               src={urlFor(project?.image).url()}
               alt={`Project${i} Image`}
-              className='w-72 h-72 object-cover rounded-full mt-15'
+              className='w-72 h-72 object-cover mt-15'
             />
-            <div className='space-y-6 -mt-8 container px-10 md:px-40'>
+            <div className='space-y-6 -mt-8 container'>
               <h4 className='text-xl md:text-3xl font-semibold text-center text-white'>
-                {"<"}
+                {'<'}
                 {project?.title}
-                {"/>"}
+                {' />'}
               </h4>
               <div className='flex space-x-2 justify-center'>
-                <a className='projectButton' href={project?.linkToBuild}>
+                <a
+                  className='projectButton'
+                  href={project?.linkToBuild}
+                  target='_blank'
+                >
                   Website
                 </a>
-                <a className='projectButton' href={project?.linkToGithub}>
+                <a
+                  className='projectButton'
+                  href={project?.linkToGithub}
+                  target='_blank'
+                >
                   Github
                 </a>
               </div>
@@ -50,13 +59,15 @@ function Projects({ projects }: Props) {
                 {project?.technologies?.map((technology: any) => (
                   <img
                     key={technology._id}
-                    className='h-6 w-6 rounded-full'
+                    className='h-6 w-6 rounded-full object-cover object-center'
                     src={urlFor(technology.image).url()}
                     alt={`${technology} Image`}
                   />
                 ))}
               </div>
-              <p className='text-xs line-clamp-5'>{project?.summary}</p>
+              <p className='text-xs line-clamp-8 w-3/4 mx-auto'>
+                {project?.summary}
+              </p>
             </div>
           </div>
         ))}

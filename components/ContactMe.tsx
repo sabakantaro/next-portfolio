@@ -18,8 +18,8 @@ function ContactMe({ pageInfo }: Props) {
     window.location.href = `mailto:${pageInfo?.email}?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
   };
   return (
-    <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='pageHeader'>ContactMe</h3>
+    <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row px-10 justify-evenly mx-auto items-center'>
+      <h3 className='pageHeader'>Contact Me</h3>
       <div className='flex flex-col space-y-5 pt-20'>
         <div className='space-y-5'>
           <div className='flex space-x-3 items-center justify-center'>
@@ -65,7 +65,7 @@ function ContactMe({ pageInfo }: Props) {
             />
             <button
               type='submit'
-              className='bg-green-500 py-2 px-4 rounded-md text-black font-bold text-sm md:text-base uppercase'
+              className='bg-green-500 animate-pulse hover:bg-green-700 active:bg-green-400 duration-300 py-2 px-4 rounded-md text-gray-800 font-bold text-sm md:text-base uppercase'
             >
               Submit
             </button>
