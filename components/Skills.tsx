@@ -8,7 +8,7 @@ type Props = {
 };
 
 function Skills({ skills }: Props) {
-  const sortedSkills = skills.slice(0, 24).sort((a, b) => {
+  const sortedSkills = skills.slice(0, 20).sort((a, b) => {
     return a.progress > b.progress ? -1 : a.progress < b.progress ? 1 : 0;
   });
   return (
